@@ -6,7 +6,6 @@ The implementation of Examinee-Examiner Network: Weakly Supervised Accurate Coro
 
 - This repository is based  on Python 3.7.1, PyTorch 1.6 and numpy 1.16.5.
 
-  
 
-Future content will be updated gradually ......
+## Results presentation
 
