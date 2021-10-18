@@ -21,9 +21,12 @@ All the code has been run and tested on  Python 3.7.1, PyTorch 1.6 and numpy 1.1
 
 - Due to privacy issues, the training data cannot be made public at present, but we supplemented the description and the annotation details of the data to facilitate readers to have an objective understanding of our private data set.
 - **「Source and acquisition protocols」** **Cardiac CCTA Data** is multi-center and multi-device data. CCTA images from 132 patients whose stenoses were found in the major epicardial coronary arteries by CTA were selected. Two hospitals in China (Shanghai Jiao Tong University Affiliated Sixth People’s Hospital, Shanghai and Beijing Anzhen Hospital, Capital Medical University, Beijing) provided the imaging data. For the data from the first hospital, a 128-slice multidetector CT (Definition AS, Siemens Medical Solutions, Forchheim, Germany) was employed for scanning.
-- **「Detailed information」** 
+- **「Detailed information」** According to the data of 132 cases used in the experiment, the age of patients ranged from 38 to 83 years old, with an average age of 62.2 years. Among them, there were 99 males and 33 females. In the data, there are 147 lesions of clinical concern, the average quantitative diameter stenosis rate is 45.2%, and the minimum lumen area is 2.13 $mm^2$. Among them, 60 patients had stenosis with a quantitative diameter stenosis rate of more than 50%
 
 ### **ASOCA Data** (The public dataset)
 
+- **ASOCA Data** comes from the 2020 MICCAI Challenge "Automated Segmentation of Coronal Arteries". They provided a training data set of 40 CCTA images with contrast agent showing the coronary arteries, comprising 20 healthy patients and 20 patients with confirmed coronary artery disease. The training data set is used in our paper as the test data to verify the generalization ability of our method on the cross-dataset tasks. Annotations produced by three expert annotators are provided for this data set. Data was collected using retrospective ECG-gated acquisition (GE LightSpeed 64 slice CT Scanner, USA. The time point used for the challenge is late diastole (75\% cardiac cycle)
 - Download the ASOCA dataset from the official [website](https://asoca.grand-challenge.org/Home/)
+
+### Data preprocessing
 
