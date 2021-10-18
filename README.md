@@ -11,3 +11,5 @@ The implementation of Examinee-Examiner Network: Weakly Supervised Accurate Coro
 
 ![results](pic/results.jpg)
 
+<img src="pic/result1.gif" alt="result1" style="zoom:33%;" /> 
+
