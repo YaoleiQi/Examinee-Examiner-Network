@@ -32,7 +32,7 @@ All the code has been run and tested on  Python 3.7.1, PyTorch 1.6 and numpy 1.1
 
 - To adapt to the different data types such as DCM, NRRD, etc. and unify the training process, we changed all the data to the RAW type, and the resolution was re-sampled to 1: 1: 1.
 - The original image was $512\times512$ per slice, with 200 to 500 slices per image. The region of interest (ROI) was extracted and these heart ROIs were cropped into small 3D patches of $288\times288\times224$ online before been fed into the network due to the limitation of GPU memory.
-- The **「Data folder」** contains an original image from ASOCA **「28.nrrd」** and an RAW image after our processing. The ROI image after our cutting is provided as a sample, and the size of the image is stored in the **「Npy folder」** as a **「.npy file」**.
+- The **「Data folder」** contains an original image from ASOCA **「28.nrrd」** and an RAW image **「28.raw」** after our processing. The ROI image after our cutting is provided as a sample, and the size of the image is stored in the **「Npy folder」** as a **「.npy file」**.
 
 <div align="center"><img src="pic/28nrrd.png" alt="28nrrd" style="zoom:50%;" /><img src="pic/28nrrd2d.png" alt="28nrrd2d" style="zoom:30%;" /></div>
 
