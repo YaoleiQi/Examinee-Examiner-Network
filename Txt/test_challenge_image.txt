@@ -1,2 +1,2 @@
 data/ASOCA_afterprocess/image/1.raw
-data/ASOCA_afterprocess/image/21.raw
+data/ASOCA_afterprocess/image/22.raw
