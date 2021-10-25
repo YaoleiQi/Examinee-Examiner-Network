@@ -42,7 +42,10 @@ All the code has been run and tested on  Python 3.7.1, PyTorch 1.6 and numpy 1.1
 
 ![EE-Net](pic/EE-Net.jpg)
 
+### Framework
 
+- The basic network framework of our Examinee and Examiner network adopts the 3D U-Net architecture, in which the Examinee contains four down-sampling and the Examiner network contains three down-sampling.
+- For details, please refer to the **「E1_Net」** and **「E2_Net」**  section under the **「code」** folder.
 
 ## Training and learning strategy
 
