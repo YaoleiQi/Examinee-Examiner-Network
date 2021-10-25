@@ -1,0 +1,2 @@
+data/ASOCA_afterprocess/label/1.raw
+data/ASOCA_afterprocess/label/21.raw

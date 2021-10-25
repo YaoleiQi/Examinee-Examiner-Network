@@ -583,4 +583,17 @@ def Dice(label_dir, pred_dir):
 if __name__ == '__main__':
     net1 = E1_Net(n_channels=1, n_classes=1)
     net2 = E2_Net(n_channels=1, n_classes=1)
-    train_net(net1=net1, net2=net2, n_epochs=0, batch_size=1, lr=1e-4)     # When testing, set n_epoch to 0.
+    # train_net(net1=net1, net2=net2, n_epochs=0, batch_size=1, lr=1e-4)     # When testing, set n_epoch to 0.
+
+    '''
+    Test
+    '''
+    model1_name = 'Evaluation1_66_1_new.dat'
+    test_image_dir = 'Txt/test_challenge_image.txt'     # ASOCA DATA
+    test_label_dir = 'Txt/test_challenge_label.txt'
+    # test_image_dir = 'Txt/Txt_weak_acnet_66_1/test_image.txt'    # Our DATA
+    # test_label_dir = 'Txt/Txt_weak_acnet_66_1/test_label.txt'
+    save_dir = 'Results/R_challenge'      # Save the results of the validation set.
+    checkpoint_dir2 = 'Weights_m'  # Save the best model parameters on the validation set.
+    net1.load_state_dict(torch.load(os.path.join(checkpoint_dir2, model1_name)))  # Only E1-Net is required for testing.
+    predict_all(net1, save_path=save_dir, shape=shape, img_path=test_image_dir, num_classes=1)

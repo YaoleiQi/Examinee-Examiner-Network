@@ -47,12 +47,92 @@ All the code has been run and tested on  Python 3.7.1, PyTorch 1.6 and numpy 1.1
 - The basic network framework of our Examinee and Examiner network adopts the 3D U-Net architecture, in which the Examinee contains four down-sampling and the Examiner network contains three down-sampling.
 - For details, please refer to the **「E1_Net」** and **「E2_Net」**  section under the **「code」** folder.
 
-## Training and learning strategy
-
-Further content will be announced before the publication 
-
-
-
 ## Prediction
 
-Further content will be announced before the publication 
+- Please refer to the **「EEE_Learning」**  under the **「code」** folder.
+
+- **「Npy」** stores the size of the cropped images. **「Weights_m」** provides our trained parameters for direct use. 
+
+- Specific comments are in the code.
+
+  ```python
+  model1_name = 'Evaluation1_66_1_new.dat'
+  test_image_dir = 'Txt/test_challenge_image.txt' test_label_dir = 'Txt/test_challenge_label.txt'
+  
+  save_dir = 'Results/R_challenge'    
+  checkpoint_dir2 = 'Weights_m'  
+     net1.load_state_dict(torch.load(os.path.join(checkpoint_dir2, model1_name))) 
+      
+  predict_all(net1, save_path=save_dir, shape=shape, img_path=test_image_dir, num_classes=1)
+  ```
+
+## Training and learning strategy
+
+- Please refer to the **「EEE_Learning」**  under the **「code」** folder.
+
+-  **「DataLoader_txt」**is used for processing the input data.
+
+  ```python
+  model1.train()
+  model2.train()
+  for batch_idx in range(loader1.__len__()):
+      input1, target11, target12 = loader1.__iter__().__next__() # full-supervised data
+      input2, target22 = loader2.__iter__().__next__() # weakly-supervised data
+  
+      if torch.cuda.is_available():
+         input1 = input1.cuda()
+         input2 = input2.cuda()
+         target11 = target11.cuda()
+         target12 = target12.cuda()
+         target22 = target22.cuda()
+  
+         optimizer1.zero_grad()
+         optimizer2.zero_grad()
+         model1.zero_grad()
+         model2.zero_grad()
+  ```
+
+  
+
+  ```python
+  # stage1
+  output12 = model2(target11)
+  loss12 = criterion2(target12, output12)
+  
+  losses12.update(loss12.data, target12.size(0))
+  loss1 = loss12
+  
+  loss1.backward()
+  optimizer2.step()
+  
+  # stage2
+  output21 = model1(input1)
+  output22 = model2(output21)
+  
+  loss21 = criterion1(target11, output21)
+  loss22 = criterion2(target12, output22)
+  
+  loss2 = loss21 + loss22
+  
+  losses21.update(loss21.data, target11.size(0))
+  losses22.update(loss22.data, target12.size(0))
+  
+  loss2.backward()
+  optimizer1.step()
+  
+  # stage3
+  output31 = model1(input2)
+  output32 = model2(output31)
+  
+  loss32 = criterion2(target22, output32)
+  
+  losses32.update(loss32.data, target22.size(0))
+  
+  loss3 = loss32
+  
+  loss3.backward()
+  optimizer1.step()
+  ```
+
+  
+

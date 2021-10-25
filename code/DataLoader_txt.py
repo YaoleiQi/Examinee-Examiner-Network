@@ -46,7 +46,7 @@ class DataLoad(data.Dataset):
         '''
         Read in the cropped dimensions here. This address is the address where the dimensions are stored.
         '''
-        shape1 = np.load('data/ASOCA_afterprocess/Npy/'+s.rstrip('.raw')+'.npy')
+        shape1 = np.load('Npy/'+s.rstrip('.raw')+'.npy')
         x = shape1[2]
         y = shape1[1]
         z = shape1[0]
