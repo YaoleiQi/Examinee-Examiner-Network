@@ -6,12 +6,13 @@ The implementation of Examinee-Examiner Network: Weakly Supervised Accurate Coro
 
 All the code has been run and tested on  Python 3.7.1, PyTorch 1.6 and numpy 1.16.5, GTX2080Ti GPUs.
 
+## Paper
+**Y. Qi**, H. Xu, Y. He et. al, Examinee-Examiner Network: Weakly Supervised Accurate Coronary Lumen Segmentation Using Centerline Constraint, **_IEEE Transactions on Image Processing_**, 30, 9429–9441, 2021, doi: 10.1109/TIP.2021.3125490.
+
 
 ## Results presentation
 
 <img src="pic/results.jpg" alt="results" style="zoom:30%;" />
-
-
 
 <div align="center"><img src="pic/result1.gif" alt="result1" style="zoom:33%;" /><img src="pic/result2.gif" alt="result2" style="zoom:33%;" /></div>
 
